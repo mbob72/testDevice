@@ -13,7 +13,6 @@ function App() {
         <div>{ifHigher15 && 'Ваша платформа = xOS, ее версия  15.1.x'}</div>
         <div>Платформа: {navigator.platform}</div>
         <div>Полная версия: {navigator.appVersion}</div>
-        <div>Мажорная версия: {parseInt(navigator.appVersion, 10)}</div>
       </header>
     </div>
   );
