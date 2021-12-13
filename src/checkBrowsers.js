@@ -24,7 +24,7 @@ export function macOsOrIosHigher15ver() {
   if(checkVer(res)) {
     return true
   }
-  res = navigator.appVersion.match(/Version\/(\d{1,2})\/(\d{1,2})/)
+  res = navigator.appVersion.match(/Version\/(\d{1,2})\.(\d{1,2})/)
   if(checkVer(res)) {
     return true
   }
