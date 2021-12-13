@@ -20,11 +20,11 @@ const checkVer = res => res && res.length && res[1] === '15' && (parseInt(res[2]
 
 export function macOsOrIosHigher15ver() {
   if (!iOS()) return false;
-  let res = navigator.platform.match(/iPhone OS (\d{1,2})_(\d{1,2})/);
+  let res = navigator.appVersion.match(/iPhone OS (\d{1,2})_(\d{1,2})/);
   if(checkVer(res)) {
     return true
   }
-  res = navigator.platform.match(/Version\/(\d{1,2})\/(\d{1,2})/)
+  res = navigator.appVersion.match(/Version\/(\d{1,2})\/(\d{1,2})/)
   if(checkVer(res)) {
     return true
   }
