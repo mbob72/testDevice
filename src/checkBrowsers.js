@@ -18,7 +18,11 @@ export function iOS() {
 
 export function macOsOrIosHigher15ver() {
   if (!/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) return false;
-  return parseInt(navigator.appVersion, 10) >= 15;
+  const res = navigator.platform.match(/iPhone OS (\d{1,2})_(\d{1,2})_\d/);
+  if(res && res.length && res[1] === '15' && res[2] === '1') {
+    return true
+  }
+  return false
 }
 
 export const checkWrongBrowsers = () => {
