@@ -31,6 +31,7 @@ export function macOsOrIosHigher15ver() {
   return false
 }
 
+
 export const checkWrongBrowsers = () => {
   return mozilla() || msie() || opera() || macOsOrIosHigher15ver();
 
