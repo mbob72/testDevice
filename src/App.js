@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {checkWrongBrowsers, macOsOrIosHigher15ver} from "./checkBrowsers";
+import {checkWrongBrowsers, macOsOrIosHigher15ver} from "./checkBrowsers_";
 
 function App() {
   const ifWrong = checkWrongBrowsers()
