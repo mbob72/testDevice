@@ -21,6 +21,9 @@ export function macOsOrIosHigher15ver() {
   let res = navigator.appVersion.match(/iPhone OS (\d{1,2})_(\d{1,2})/);
   if(checkVer(res)) {
     return true
+  //  for yandex for ios, have iPhone OS 15_2 and Version/15.0 in string
+  } else if (res && res.length && res[1] === '15') {
+    return false
   }
   res = navigator.appVersion.match(/Version\/(\d{1,2})\.(\d{1,2})/)
   if(checkVer(res)) {
