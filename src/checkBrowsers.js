@@ -13,7 +13,8 @@ export function iOS() {
   );
 }
 
-const checkVer = (res) => res && res.length && res[1] === '15' && (parseInt(res[2]) < 2)
+const checkVer = (res) =>
+    res && res.length && res[1] === '15' && (parseInt(res[2]) < 2)
 
 export function macOsOrIosHigher15ver() {
   if (!iOS()) return false;
