@@ -13,23 +13,27 @@ export function iOS() {
   );
 }
 
+
 const checkVer = (res) =>
-    res && res.length && res[1] === '15' && (parseInt(res[2]) < 2)
+    res && res.length && res[1] === '15' && (parseInt(res[2]) < 2);
+
+const checkYandexIpad = (appVersion) => appVersion.includes('YaBrowser') && appVersion.includes('iPad')
 
 export function macOsOrIosHigher15ver() {
   if (!iOS()) return false;
+  if(checkYandexIpad(navigator.appVersion)) {
+    const res = navigator.appVersion.match(/CPU OS (\d{1,2})_(\d{1,2})/);
+    return checkVer(res)
+  }
   let res = navigator.appVersion.match(/iPhone OS (\d{1,2})_(\d{1,2})/);
-  if(checkVer(res)) {
-    return true
-  //  for yandex for ios, have iPhone OS 15_2 and Version/15.0 in string
-  } else if (res && res.length && res[1] === '15') {
-    return false
+  if (res) {
+    return checkVer(res);
   }
-  res = navigator.appVersion.match(/Version\/(\d{1,2})\.(\d{1,2})/)
-  if(checkVer(res)) {
-    return true
+  res = navigator.appVersion.match(/Version\/(\d{1,2})\.(\d{1,2})/);
+  if (res) {
+    return checkVer(res);
   }
-  return false
+  return false;
 }
 
 
